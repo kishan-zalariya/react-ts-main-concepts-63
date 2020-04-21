@@ -10,7 +10,7 @@ import Navbar from "./Navbar";
 
 /*
   Multiple Components in Sync
-  Lifting the State Up  
+  Lifting the State Up 
 */
 
 interface AppProps {}
