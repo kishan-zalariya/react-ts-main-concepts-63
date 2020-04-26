@@ -4,6 +4,7 @@ import { render } from "react-dom";
 interface AppProps {}
 interface AppState {
   isToggleOn;
+  count;
 }
 
 /* Handling Events */
@@ -17,7 +18,8 @@ class Handling_Events extends Component<AppProps, AppState> {
   constructor(props) {
     super(props);
     this.state = {
-      isToggleOn: true
+      isToggleOn: true,
+      count: 0
     };
     // This binding is necessary to make `this` work in the callback
     // this.handleClick = this.handleClick.bind(this);
@@ -39,6 +41,12 @@ class Handling_Events extends Component<AppProps, AppState> {
   };
   /* End */
 
+  handelIncrement = () => {
+    this.setState(
+      { count: this.state.count+1 }
+    )
+  }
+
   render() {
     return (
       <div>
@@ -56,6 +64,9 @@ class Handling_Events extends Component<AppProps, AppState> {
             Say Hello
           </button>
         </div>
+
+        <span>{this.state.count}</span>
+        <button onClick={this.handelIncrement}> + </button>
       </div>
     );
   }

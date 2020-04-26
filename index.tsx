@@ -16,6 +16,7 @@ import Navbar from "./Navbar";
 interface AppProps {}
 interface AppState {
   name;
+  counters;
 }
 
 /* Rendring Elements */
@@ -39,8 +40,7 @@ class App extends Component<AppProps, AppState> {
         { id: 2, value: 0, seleted: "true" },
         { id: 3, value: 0, seleted: "true" }
       ]      
-    };
-    super();
+    };    
     console.log("Index - Constructor");
   }
 
@@ -52,7 +52,7 @@ class App extends Component<AppProps, AppState> {
   /* Lifting the State Up */
   handleIncrement = counter => {    
     const counters = [...this.state.counters]; //Clone counters array
-    const index = counters.indexOf(counter);
+    const index = counters.indexOf(counter); //get index of particular counter
     counters[index] = {...counter};
     counters[index].value++;
     this.setState({counters});
